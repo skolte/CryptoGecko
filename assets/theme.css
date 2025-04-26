@@ -1,0 +1,12 @@
+/* Gecko-themed colors */
+:root {
+    --primary: #4CAF50;  /* Gecko green */
+    --secondary: #FFC107; /* Gold */
+    --background: #121212;
+    --text: #FFFFFF;
+}
+
+.stButton>button {
+    background-color: var(--primary);
+    color: var(--text);
+}

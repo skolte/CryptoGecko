@@ -1,0 +1,21 @@
+# Core
+streamlit==1.29.0
+pandas==2.1.1
+
+# APIs
+alpha-vantage==2.3.1
+requests==2.31.0
+
+# News/Sentiment
+textblob==0.17.1
+nltk==3.8.1
+newspaper3k==0.2.8
+
+# Utilities
+python-dotenv==1.0.0
+cachetools==5.3.1
+python-multipart==0.0.6
+
+# Security
+bcrypt==4.0.1
+PyJWT==2.8.0
