@@ -22,3 +22,5 @@ git clone https://github.com/skolte/CryptoGecko.git
 cd CryptoGecko
 pip install -r requirements.txt
 streamlit run app.py
+
+Last updated 4/26/2025
