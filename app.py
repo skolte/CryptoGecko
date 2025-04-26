@@ -3,18 +3,53 @@ from agents.ta_agent import TechnicalAnalysisAgent
 from agents.news_agent import NewsSentimentAgent
 import time
 
-# Config
-st.set_page_config(page_title="CryptoGecko 🦎", layout="wide")
-
-# Initialize agents
+# Initialize agents (with error handling)
 @st.cache_resource
-def load_agents():
-    return {
-        'ta': TechnicalAnalysisAgent(),
-        'news': NewsSentimentAgent()
-    }
+def init_agents():
+    try:
+        return {
+            'ta': TechnicalAnalysisAgent(),
+            'news': NewsSentimentAgent()
+        }
+    except Exception as e:
+        st.error(f"Agent initialization failed: {str(e)}")
+        return None
 
-agents = load_agents()
+# Main app function
+def main():
+    st.set_page_config(
+        page_title="CryptoGecko 🦎",
+        page_icon="🦎",
+        layout="wide"
+    )
+    
+    st.title("🦎 CryptoGecko Dashboard")
+    
+    agents = init_agents()
+    if not agents:
+        return
+    
+    # Coin selector
+    coin = st.selectbox(
+        "Select Cryptocurrency", 
+        ["BTC", "ETH", "SOL", "BNB", "XRP"],
+        index=0
+    )
+    
+    # Display data
+    with st.spinner("Fetching data..."):
+        try:
+            ta_data = agents['ta'].analyze(coin)
+            news_data = agents['news'].analyze(coin)
+            
+            st.subheader(f"{coin} Technical Indicators")
+            st.json(ta_data)  # Replace with your visualization
+            
+            st.subheader("News Sentiment")
+            st.json(news_data)  # Replace with your visualization
+            
+        except Exception as e:
+            st.error(f"Data fetch failed: {str(e)}")
 
-# Your existing app code here...
-# [PASTE THE FULL APP CODE FROM OUR PREVIOUS CHATS]
+if __name__ == "__main__":
+    main()
