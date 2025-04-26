@@ -1,18 +1,24 @@
+# 🦎 CryptoGecko - Real-Time Crypto Analysis Toolkit
 
-### How to Add This to Your Repo:
+![CryptoGecko Logo](assets/logo.png)
 
-1. **On GitHub Mobile/Web**:
-   - Navigate to your CryptoGecko repo
-   - Tap "Add file" → "Create new file"
-   - Name it `README.md`
-   - Paste the entire content above
-   - Commit changes
+A Streamlit-powered dashboard for real-time cryptocurrency technical analysis and news sentiment tracking.
 
-2. **From Local Machine**:
+## ✨ Features
+
+- **Technical Indicators**: RSI, MACD, EMA, SMA, Williams %R
+- **News Sentiment Analysis**: Real-time mood detection
+- **Mobile-Optimized**: Works perfectly on phones
+- **API Protection**: Rate limiting & caching
+- **Admin-Ready**: User accounts structure
+
+## 🚀 Quick Deployment
+
+[![Deploy on Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=skolte/CryptoGecko)
+
 ```bash
-echo "# 🦎 CryptoGecko - Real-Time Crypto Analysis Toolkit
-...
-" > README.md
-git add README.md
-git commit -m "Add project README"
-git push
+# Local setup
+git clone https://github.com/skolte/CryptoGecko.git
+cd CryptoGecko
+pip install -r requirements.txt
+streamlit run app.py
